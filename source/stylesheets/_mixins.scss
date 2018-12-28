@@ -19,10 +19,11 @@
   }
 }
 @mixin font ($font-family: inherit, $color: initial, $font-size: inherit,
-  $letter-spacing: normal, $text-transform: none) {
+  $letter-spacing: normal, $font-weight: normal, $text-transform: none) {
   color: $color;
   font-family: $font-family;
   font-size: $font-size;
+  font-weight: $font-weight;
   letter-spacing: $letter-spacing;
   text-transform: $text-transform;
 }
@@ -41,8 +42,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@mixin d-flx ($justify-content: intital, $flex-wrap: nowrap,
-  $align-content: initial, $align-items: initial) {
+@mixin d-flx ($justify-content: intital,
+  $align-content: initial, $align-items: initial, $flex-wrap: nowrap) {
   display: flex;
   display: -webkit-box;
   display: -webkit-flex;
@@ -52,7 +53,7 @@
   justify-content: $justify-content;
   align-content: $align-content
 }
-@mixin pos-abs ($top: initial, $right: intital,
+@mixin pos-abs ($top: initial, $right: initial,
   $bottom: initial, $left: initial) {
   position: absolute;
   top: $top;
