@@ -1,0 +1,75 @@
+@mixin desktop {
+  @media (max-width: 1440px) {
+    @content
+  }
+}
+@mixin laptop {
+  @media (max-width: 1024px) {
+    @content
+  }
+}
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content
+  }
+}
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content
+  }
+}
+@mixin font ($font-family: inherit, $color: initial, $font-size: inherit,
+  $letter-spacing: normal, $text-transform: none) {
+  color: $color;
+  font-family: $font-family;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+}
+@mixin background ($img, $size: cover, $position: center,
+  $repeat: no-repeat) {
+  background: {
+    image: $img;
+    position: $position;
+    repeat: $repeat;
+    size: $size;
+  }
+}
+@mixin center-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin d-flx ($justify-content: intital, $flex-wrap: nowrap,
+  $align-content: initial, $align-items: initial) {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  flex-wrap: $flex-wrap;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  align-content: $align-content
+}
+@mixin pos-abs ($top: initial, $right: intital,
+  $bottom: initial, $left: initial) {
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+}
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}

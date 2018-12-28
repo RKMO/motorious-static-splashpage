@@ -1,0 +1,28 @@
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+
+body {
+  background-color: $background-color;
+  color: $dark;
+}
+h1 {
+  @include font($accent-font, $dark, 132px);
+  &.bold {
+    font-family: $accent-font-b;
+  }
+}
+h2 {
+  @include font($accent-font-b, $dark, 36px);
+  line-height: 1.14;
+}
+p {
+  @include font($sec-font, $dark, 16pxpx);
+  line-height: 1.63;
+}
+a {
+  @include font($link-font, $light-grey, 16px, .2px);
+  &.orange {
+    color: $primary;
+  }
+}
