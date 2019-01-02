@@ -2,13 +2,19 @@
 @import 'variables';
 @import 'mixins';
 
+html, body {
+  height: 100vh;
+}
 body {
   background-color: $background-color;
   color: $dark;
+  margin: 0;
+}
+body {
+  height: 100%;
   box-sizing: border-box;
-  scroll-snap-type: y mandatory;
-  scroll-snap-points-y: repeat(100vh);
-  overflow-y: scroll;
+  position: relative;
+  overflow-x: hidden;
 }
 h1 {
   margin: 0;
@@ -38,8 +44,10 @@ a {
   width: 100vw;
   max-width: 100vw;
   box-sizing: border-box;
-  padding: 4vh 2vw 2vh 2vw;
-  scroll-snap-align: start;
+  position: relative;
+  &:first-child {
+    padding: 4vh 2vw 2vh 2vw;
+  }
   .mb {
     margin-bottom: 6vh;
   }
@@ -68,35 +76,101 @@ a {
 }
 .bg-num {
   position: relative;
-  width: 30%;
+  width: 100%;
   margin: 0 auto;
-  transform: translateY(-16vh);
+  transform: translateY(-12vh);
   height: auto;
   &.grow {
     width: 100vw;
     height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
     transform: translateY(0);
-    @include transition(all 1s ease);
+    @include transition(all .6s ease);
   }
-  &.grow.first:after {
-    font-size: 40vw;
-    opacity: .3;
-    @include transition(all 1s ease);
+  &.grow:after {
+    font-size: 52vw;
+    opacity: .1;
+    @include transition(all .5s ease);
+    transform: translate(-50%, -50%) scale(1);
+    width: 140%;
   }
-  &.first:after {
-    content: '200+';
+  &.shrink {
+    transform: translateY(86vh);
+    width: 100%;
+    @include transition(all .3s ease);
+    transition-delay: .4s;
+  }
+  &:after {
     height: 100%;
     width: 100%;
-    @include font($sec-font, $primary, 12vw, initial, bold);
+    @include font($sec-font-b, $primary, 12vw, initial, bold);
     transform: translate(-50%, -50%);
     position: absolute;
     top: 50%;
     left: 50%;
     text-align: center;
     margin-bottom: 3vh;
+    @include transition(all .6s ease);
+  }
+  // &:after {
+  //   height: 100%;
+  //   width: 100%;
+  //   @include font($sec-font-b, $primary, 12vw, initial, bold);
+  //   transform: translate(-50%, -50%);
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   text-align: center;
+  //   margin-bottom: 3vh;
+  //   @include transition(all .6s ease);
+  // }
+  &.first:after {
+    content: '200+';
+  }
+  &.sec:after {
+    content: '10k+';
+  }
+  &.third:after {
+    content: '40k+';
+  }
+  &.fourth:after {
+    content: '9000';
+  }
+  &.fifth:after {
+    content: '12M';
+  }
+  &.sixth:after {
+    content: '7000';
   }
 }
-@keyframes animateBgGrow {
-  0% { width: 30%; height: auto; transform: translateY(-16vh); }
-  100% { width: 100%; height: 100%; transform: translateY(0); }
+.section-content {
+  display: none;
+  margin-left: -110vw;
+  @include pos-abs(0, 0, 0, 0);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 34%;
+  max-width: 34%;
+}
+.section-logo img {
+  max-width: 184px;
+}
+.section-content.animate {
+  display: flex;
+  margin: 0 auto;
+}
+.arrow-link {
+  color: $primary;
+  display: block;
+  width: 100%;
+}
+.arrow-link:after {
+  content: '';
+  @include background('images/right.svg');
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  margin-left: 4px;
 }

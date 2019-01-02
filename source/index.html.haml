@@ -2,15 +2,36 @@
 title: Motorious
 ---
 
-.section.top.d-flx.evenly
-  =link_to image_tag('images/motorious.svg', alt: 'Motorious Logo'), '/', class: 'mtrs-logo'
-  %h1
-    %span.bold
-      The largest collector car marketplace.
-    %br
-    Content tailored to your passion.
-  =link_to 'See the brands behind motorious', '#', class: 'ta-center fw mb'
-.section
-  .bg-num.first
-  .section-content
-
+.wrapper
+  .section.top.d-flx.evenly
+    =link_to image_tag('images/motorious.svg', alt: 'Motorious Logo'), '/', class: 'mtrs-logo'
+    %h1
+      %span.bold
+        The largest collector car marketplace.
+      %br
+      Content tailored to your passion.
+    =link_to 'See the brands behind motorious', '#', class: 'ta-center fw mb'
+  .section
+    .bg-num.first
+    .section-content
+      .section-content--text
+        = link_to image_tag('images/speeddigital.png', alt: 'Speed Digital Logo'), '/', class: 'section-logo'
+        %h2 Over 200 of the top specialty dealers, auctions, and collectors on our leading dealer management software.
+        %p Speed Digital is a technology software providor assisting those in the classic and collector car industry with inventory management, digital marketing, and wrbsite development.
+        =link_to 'Visit Speed Digital', 'https://speeddigital.com', class: 'arrow-link'
+      =link_to 'Next Stat', '#', class: 'ta-center fw mb'
+  .section
+    .bg-num.sec
+      .section-content
+  .section
+    .bg-num.third
+      .section-content
+  .section
+    .bg-num.fourth
+      .section-content
+  .section
+    .bg-num.fifth
+      .section-content
+  .section
+    .bg-num.sixth
+      .section-content

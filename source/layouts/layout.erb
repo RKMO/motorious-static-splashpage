@@ -8,7 +8,10 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <title><%= current_page.data.title || "Motorious" %></title>
     <%= stylesheet_link_tag "site" %>
+    <%= javascript_include_tag "jquery.easing.1.3" %>
+    <%= javascript_include_tag "jquery.scrollify" %>
     <%= javascript_include_tag "site" %>
+
   </head>
   <body>
     <%= yield %>

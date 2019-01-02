@@ -49,9 +49,21 @@
   src: url(font-path('ibmplexmono-semibold.eot'));
   src: url(font-path('ibmplexmono-semibold.woff2')) format('woff2'),
   url(font-path('ibmplexmono-semibold.woff')) format('woff'),
-  url(font-path('ibmplexmono-semibold-bold.ttf')) format('truetype'),
+  url(font-path('ibmplexmono-semibold.ttf')) format('truetype'),
   url(font-path('ibmplexmono-semibold.svg')) format('svg'),
   url(font-path('ibmplexmono-semibold.eot?#iefix')) format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MonoCond';
+  src: url(font-path('ibmplexsanscondensed-semibold.eot'));
+  src: url(font-path('ibmplexsanscondensed-semibold.woff2')) format('woff2'),
+  url(font-path('ibmplexsanscondensed-semibold.woff')) format('woff'),
+  url(font-path('ibmplexsanscondensed-semibold-bold.ttf')) format('truetype'),
+  url(font-path('ibmplexsanscondensed-semibold.svg')) format('svg'),
+  url(font-path('ibmplexsanscondensed-semibold.eot?#iefix')) format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
