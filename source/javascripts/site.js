@@ -3,10 +3,6 @@
 var scrollPos = 0;
 var preIndex = 0;
 var count = 0;
-$(window).on('scroll', function() {
-  var scrollT = $(window).scrollTop();
-  scrollPos = scrollT;
-})
 
 $(document).ready(function() {
   $.scrollify({
@@ -14,50 +10,29 @@ $(document).ready(function() {
     easing: "easeOutQuad",
     scrollSpeed: 500,
     scrollbars: false,
-    before: function(e) {
-      // preIndex = 0;
+    afterRender:function(){
+      $('body').attr('data-preIndex',0);
     },
-    after: function(e) {
+    before: function(e) {
+      var direction,preIndex;
       preIndex = parseInt($('body').attr('data-preIndex'));
       if (e > preIndex) {
-        var prevEl = preIndex - 1;
-        $('.bg-num').each(function(i, el) {
-          if (i == preIndex) {
-            console.log('grow up')
-            $(this).addClass('grow').removeClass('shrink');
-          }  else if (i == prevEl) {
-            console.log('shrink up')
-            $(this).removeClass('grow').addClass('shrink');
-          }
-        })
+        $.scrollify.current().find('.bg-num').addClass('grow');
+        if (count >= 1) {
+          $("div[data-position='" + count + "']").addClass('shrink');
+        }
         count += 1;
-      } else {
-        var prevEl = preIndex + 1;
-        $('.bg-num').each(function(i, el) {
-          if (i == preIndex - 1) {
-            console.log('grow down')
-            $(this).removeClass('shrink').addClass('grow');
-            console.log($(this), i)
-          }
-          if (i == 0 && preIndex == 0) {
-            console.log('rm grow down')
-            $(this).removeClass('grow');
-          }
-        })
+      }else {
+        count -= 1;
+        $.scrollify.current().find('.bg-num').removeClass('shrink');
+        $("div[data-position='" + (count - 1) + "']").addClass('shrink');
+        $("div[data-position='" + (count + 1) + "']").removeClass('grow');
       }
-      $('body').attr('data-preIndex', e);
+      $('body').attr('data-preIndex',e);
     },
-  });
-});
-
-function animateBGShrink(count) {
-  var prevEl = count - 1;
-  $('.bg-num').each(function(i, el) {
-    if (i == prevEl) {
-      $(this).addClass('shrink').removeClass('grow');
+    after: function() {
+      $.scrollify.current().find('.section-content').addClass('animate');
     }
   })
-}
-function animateBGGrow(count) {
+});
 
-}
