@@ -8,9 +8,10 @@ $(document).ready(function() {
   $.scrollify({
     section: ".section",
     easing: "easeOutQuad",
-    scrollSpeed: 500,
+    scrollSpeed: 800,
     scrollbars: false,
-    afterRender:function(){
+    offset: 16,
+    afterRender:function() {
       $('body').attr('data-preIndex',0);
     },
     before: function(e) {
@@ -34,5 +35,16 @@ $(document).ready(function() {
       $.scrollify.current().find('.section-content').addClass('animate');
     }
   })
+  $('.prev').on('click', function(e) {
+    e.preventDefault();
+    $.scrollify.previous();
+  })
+  $('.next').on('click', function(e) {
+    e.preventDefault();
+    $.scrollify.next();
+  });
+  $('.expand').on('click', function(e) {
+    $(this).addClass('active');
+    $(this).find('form').addClass('active');
+  })
 });
-

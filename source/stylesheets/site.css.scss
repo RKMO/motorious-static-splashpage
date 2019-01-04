@@ -5,6 +5,10 @@
 html, body {
   height: 100vh;
 }
+
+* {
+  clear: both;
+}
 body {
   background-color: $background-color;
   color: $dark;
@@ -20,6 +24,7 @@ h1 {
   margin: 0;
   @include font($accent-font, $dark, 8.2vw);
   line-height: 1.12;
+  margin-top: -4vh;
   span.bold {
     font-family: $accent-font-b;
   }
@@ -39,6 +44,38 @@ a {
     color: $primary;
   }
 }
+.expand {
+  background-color: $opaque;
+  width: 16vw;
+  height: 4vh;
+  border-radius: 6px;
+  padding: 1.4vw 1vw;
+  p {
+    @include font($link-font-i, $primary, 16px, .2px);
+    width: 100%;
+  }
+  cursor: pointer;
+  @include pos-abs(initial, 2vw, 4vw);
+  @include transition(all .6s ease);
+  z-index: 99;
+  &.active {
+    height: 12vh;
+  }
+  form {
+    visibility: hidden;
+    max-width: 16vw;
+    position: relative;
+    height: 0px;
+    @include transition(all .6s ease);
+    input {
+      width: 100%;
+    }
+  }
+  form.active {
+    visibility: visible;
+    height: auto;
+  }
+}
 .section {
   height: 100vh;
   width: 100vw;
@@ -51,6 +88,11 @@ a {
   }
   .mb {
     margin-bottom: 6vh !important;
+  }
+}
+.section:not(.top) {
+  .bg-num {
+    z-index: 10;
   }
 }
 .mtrs-logo {
@@ -81,9 +123,10 @@ a {
   margin: 0 auto;
   height: 12vh;
   backface-visibility: hidden;
+  transform-style: preserve-3d;
   min-height: 186px;
   text-align: center;
-  @include transition(all .6s ease);
+  @include transition(all .5s ease);
   transition-delay: .3s;
   transform: translateY(-12vh);
   img {
@@ -97,7 +140,7 @@ a {
   &.grow {
     opacity: .1;
     transform: translateY(0vh);
-    @include transition(all .6s ease);
+    @include transition(all .5s ease);
     height: 100%;
     overflow: hidden;
     transition-delay: .5s;
@@ -106,7 +149,7 @@ a {
     }
   }
   &.grow.shrink {
-    transform: translateY(88vh);
+    transform: translateY(92vh);
     width: 100%;
     @include transition(all .6s ease);
     transition-delay: .6s;
@@ -127,13 +170,23 @@ a {
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
-  @include transition(all .4s ease);
-  transition-delay: 3.4s;
+  @include transition(all .6s ease);
+  transition-delay: 4.4s;
+  &--text {
+    @include pos-abs(50%);
+    transform: translate(0, -50%);
+  }
   .section-logo, h2, p, .arrow-link {
     visibility: hidden;
     opacity: 0;
-    margin-top: -4vh;
-    @include transition(all .4s ease);
+    transform: translateY(-4vh);
+    @include transition(all .6s ease);
+  }
+  .stat {
+    visibility: hidden;
+    opacity: 0;
+    @include transition(all .6s ease);
+    transition-delay: 1.2s;
   }
   .section-logo {
     transition-delay: .3s;
@@ -147,9 +200,6 @@ a {
   .arrow-link {
     transition-delay: .9s;
   }
-  .next {
-    transition-delay: 1s;
-  }
 }
 .section-logo img {
   max-width: 184px;
@@ -157,25 +207,32 @@ a {
 .section-content.animate {
   visibility: visible;
   opacity: 1;
-  transition-delay: 3.4s;
+  transition-delay: 4.4s;
 }
 .section-content.animate * {
   visibility: visible;
   opacity: 1;
-  margin-top: 0;
+  transform: translateY(0);
+}
+.section-content.animate > .section-content--text {
+  transform: translate(0, -50%);
 }
 .arrow-link {
   color: $primary;
   display: block;
   width: 100%;
+  min-height: 24px;
 }
 .arrow-link:after {
   content: '';
-  @include background('images/right.svg');
-  height: 12px;
-  width: 12px;
+  @include background(image-url('images/right.svg'));
+  height: 18px;
+  width: 18px;
   display: inline-block;
-  margin-left: 4px;
+  margin-left: 8px;
+}
+.prev {
+  @include pos-abs(12vh);
 }
 .next {
   @include pos-abs(initial, initial, 12vh);
