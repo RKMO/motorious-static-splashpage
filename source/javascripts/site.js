@@ -49,6 +49,13 @@ $(document).ready(function() {
     e.preventDefault();
     $.scrollify.next();
   });
+  $('a.top').on('click', function(e) {
+    e.preventDefault();
+    $.scrollify.instantMove("#1");
+    count = 0;
+    $(".bg-num").removeClass('grow shrink');
+    $('.section-content').removeClass('animate');
+  });
   $('.expand .ta-center').on('click', function(e) {
     $(this).next('form').slideToggle('slow');
   })
