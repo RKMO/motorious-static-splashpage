@@ -151,7 +151,7 @@ a {
   &.grow.shrink {
     transform: translateY(92vh);
     width: 100%;
-    @include transition(all .6s ease);
+    @include transition(all .5s ease);
     transition-delay: .6s;
     height: 12vh;
     opacity: 1;

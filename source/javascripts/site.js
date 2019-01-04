@@ -8,7 +8,7 @@ $(document).ready(function() {
   $.scrollify({
     section: ".section",
     easing: "easeOutQuad",
-    scrollSpeed: 800,
+    scrollSpeed: 600,
     scrollbars: false,
     offset: 16,
     afterRender:function() {
