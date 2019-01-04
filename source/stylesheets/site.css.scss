@@ -24,14 +24,38 @@ h1 {
   margin: 0;
   @include font($accent-font, $dark, 8.2vw);
   line-height: 1.12;
-  margin-top: -4vh;
+  margin-top: -16vh;
   span.bold {
     font-family: $accent-font-b;
+  }
+  @include laptop {
+    font-size: 10vw;
+  }
+  @include tablet {
+    margin-top: -26vh;
+  }
+  @include mobile {
+    font-size: 14vw;
   }
 }
 h2 {
   @include font($accent-font-b, $dark, 36px);
   line-height: 1.14;
+  margin-bottom: 0;
+  &:after {
+    content: '';
+    width: 116%;
+    display: block;
+    overflow: hidden;
+    margin: 2vh -1vw;
+    background-color: $dark;
+    backface-visibility: hidden;
+    min-height: 1px;
+    max-height: 1px;
+    @include mobile {
+      width: 102%;
+    }
+  }
 }
 p {
   @include font($sec-font, $dark, 16px);
@@ -44,36 +68,39 @@ a {
     color: $primary;
   }
 }
+.underline {
+  text-decoration: underline;
+}
 .expand {
   background-color: $opaque;
   width: 16vw;
-  height: 4vh;
+  min-height: 4vh;
+  height: auto;
   border-radius: 6px;
-  padding: 1.4vw 1vw;
+  padding: 1.4vw 1vw .8vw;
+  cursor: pointer;
+  min-width: 224px;
+  @include pos-abs(initial, 4vw, 16vh);
+  @include transition(all .3s ease);
+  z-index: 99;
+  @include tablet {
+    bottom: 26vh;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
   p {
     @include font($link-font-i, $primary, 16px, .2px);
     width: 100%;
-  }
-  cursor: pointer;
-  @include pos-abs(initial, 2vw, 4vw);
-  @include transition(all .6s ease);
-  z-index: 99;
-  &.active {
-    height: 12vh;
+    margin: 0;
   }
   form {
-    visibility: hidden;
+    display: none;
     max-width: 16vw;
     position: relative;
-    height: 0px;
-    @include transition(all .6s ease);
     input {
       width: 100%;
     }
-  }
-  form.active {
-    visibility: visible;
-    height: auto;
   }
 }
 .section {
@@ -85,20 +112,28 @@ a {
   perspective: 1000px;
   &:first-child {
     padding: 4vh 2vw 2vh 2vw;
+    .reg-link {
+      @include pos-abs(initial, 4vw, 10vh);
+      width: 16vw;
+      min-width: 224px;
+      padding: 1.4vw 1vw;
+      @include tablet {
+        bottom: 20vh;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
   }
   .mb {
     margin-bottom: 6vh !important;
-  }
-}
-.section:not(.top) {
-  .bg-num {
-    z-index: 10;
   }
 }
 .mtrs-logo {
   width: 100%;
   text-align: center;
   display: block;
+  max-height: 2vh;
   img {
     width: 112px;
     height: auto;
@@ -172,15 +207,26 @@ a {
   align-items: center;
   @include transition(all .6s ease);
   transition-delay: 4.4s;
+  @include tablet {
+    width: 60%;
+    max-width: 60%;
+  }
+  @include mobile {
+    width: 90%;
+    max-width: 90%;
+  }
   &--text {
     @include pos-abs(50%);
     transform: translate(0, -50%);
   }
-  .section-logo, h2, p, .arrow-link {
+  .section-logo, h2, h2:after, p, .arrow-link {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-4vh);
     @include transition(all .6s ease);
+  }
+  h2:after {
+    @include transition(all .3s ease);
   }
   .stat {
     visibility: hidden;
@@ -194,11 +240,14 @@ a {
   h2 {
     transition-delay: .5s;
   }
-  p {
+  h2:after {
     transition-delay: .7s;
   }
-  .arrow-link {
+  p {
     transition-delay: .9s;
+  }
+  .arrow-link {
+    transition-delay: 1s;
   }
 }
 .section-logo img {
@@ -213,15 +262,24 @@ a {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+  h2:after {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    height: 1px;
+  }
 }
 .section-content.animate > .section-content--text {
   transform: translate(0, -50%);
 }
-.arrow-link {
+.arrow-link, .reg-link {
   color: $primary;
   display: block;
   width: 100%;
   min-height: 24px;
+  p {
+    @include font($link-font, $primary, 16px, .2px);
+  }
 }
 .arrow-link:after {
   content: '';

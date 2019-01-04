@@ -33,6 +33,8 @@ $(document).ready(function() {
     },
     after: function() {
       $.scrollify.current().find('.section-content').addClass('animate');
+      $("div[data-position='" + (count - 1 ) + "']").next('.section-content').removeClass('animate');
+      $("div[data-position='" + (count + 1 ) + "']").next('.section-content').removeClass('animate');
     }
   })
   $('.prev').on('click', function(e) {
@@ -43,8 +45,7 @@ $(document).ready(function() {
     e.preventDefault();
     $.scrollify.next();
   });
-  $('.expand').on('click', function(e) {
-    $(this).addClass('active');
-    $(this).find('form').addClass('active');
+  $('.expand .ta-center').on('click', function(e) {
+    $(this).next('form').slideToggle('slow');
   })
 });
