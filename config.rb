@@ -36,11 +36,3 @@ page '/*.txt', layout: false
 #     'Helping'
 #   end
 # end
-
-# Build-specific configuration
-# https://middlemanapp.com/advanced/configuration/#environment-specific-settings
-
-# configure :build do
-#   activate :minify_css
-#   activate :minify_javascript
-# end
