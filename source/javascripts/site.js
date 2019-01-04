@@ -5,12 +5,16 @@ var preIndex = 0;
 var count = 0;
 
 $(document).ready(function() {
+  var vh = window.innerHeight * 0.01;
+  document.body.style.setProperty('--vh', `${vh}px`);
+  $('.section').css('--vh', `${vh}px`);
   $.scrollify({
     section: ".section",
     easing: "easeOutQuad",
     scrollSpeed: 600,
     scrollbars: false,
     offset: 16,
+    setHeights: false,
     afterRender:function() {
       $('body').attr('data-preIndex',0);
     },

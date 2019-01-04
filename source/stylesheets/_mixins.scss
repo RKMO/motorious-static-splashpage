@@ -18,6 +18,7 @@
     @content
   }
 }
+
 @mixin font ($font-family: inherit, $color: initial, $font-size: inherit,
   $letter-spacing: normal, $font-weight: normal, $text-transform: none) {
   color: $color;
