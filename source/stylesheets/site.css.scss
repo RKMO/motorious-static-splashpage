@@ -92,21 +92,6 @@ a {
   position: fixed;
   bottom: 6vh;
   right: 4vw;
-  @include mobile {
-    padding-top: 4vw;
-    padding-bottom: 2vw;
-  }
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  p {
-    min-height: 6vh;
-    @include transition(all .3s ease);
-  }
-  p.active {
-    min-height: 3vh;
-  }
   @include transition(all .3s ease);
   z-index: 99;
   @include tablet {
@@ -116,12 +101,23 @@ a {
     margin: 0 auto;
   }
   @include mobile {
-    bottom: 14vh;
+    padding-top: 4vw;
+    padding-bottom: 2vw;
+    bottom: 8vh;
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
   p {
+    min-height: 6vh;
+    @include transition(all .3s ease);
     @include font($link-font-i, $primary, 16px, .2px);
     width: 100%;
     margin: 0;
+  }
+  p.active {
+    min-height: 3vh;
   }
   form {
     display: none;
