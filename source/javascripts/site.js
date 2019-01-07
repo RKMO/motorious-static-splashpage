@@ -75,7 +75,7 @@ $(document).ready(function() {
     $(this).next('form').slideToggle('slow');
     $(this).toggleClass('active');
   })
-  $("input[type=text]").on("focus", function() {
+  $("input[type=email]").on("focus", function() {
     $("input[type=submit]").addClass('active');
   })
   $('form').on('submit', function(e) {
