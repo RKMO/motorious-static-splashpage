@@ -51,7 +51,7 @@ h2 {
     width: 116%;
     display: block;
     overflow: hidden;
-    margin: 2vh -1vw;
+    margin: 2.6vh -1vw;
     background-color: $dark;
     backface-visibility: hidden;
     min-height: 1px;
@@ -60,6 +60,9 @@ h2 {
       width: 102%;
     }
   }
+}
+h2.no-border:after {
+  display: none;
 }
 p {
   @include font($sec-font, $dark, 16px);
@@ -76,15 +79,34 @@ a {
   text-decoration: underline;
 }
 .expand {
+  visibility: hidden;
+  opacity: 0;
   background-color: $opaque;
   width: 16vw;
-  min-height: 4vh;
+  min-height: 6vh;
   height: auto;
   border-radius: 6px;
-  padding: 1.4vw 1vw .8vw;
+  padding: 1.4vw 1vw 0;
   cursor: pointer;
-  min-width: 224px;
-  @include pos-abs(initial, 4vw, 16vh);
+  min-width: 320px;
+  position: fixed;
+  bottom: 6vh;
+  right: 4vw;
+  @include mobile {
+    padding-top: 4vw;
+    padding-bottom: 2vw;
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  p {
+    min-height: 6vh;
+    @include transition(all .3s ease);
+  }
+  p.active {
+    min-height: 3vh;
+  }
   @include transition(all .3s ease);
   z-index: 99;
   @include tablet {
@@ -103,11 +125,82 @@ a {
   }
   form {
     display: none;
-    max-width: 16vw;
+    width: 94%;
+    margin: 0 auto 3% auto;
     position: relative;
-    input {
-      width: 100%;
-    }
+  }
+}
+input[type="radio"] {
+  display: none;
+  &:not(:disabled) ~ label {
+    cursor: pointer;
+  }
+}
+input[type="radio"]:checked + label {
+  position: relative;
+  color: $primary;
+  transition: all .3s ease;
+  &:after {
+    width: 100%;
+    right: 0;
+  }
+}
+label {
+  background-color: transparent;
+  box-shadow: none;
+  width: 48%;
+  display: inline-block;
+  margin: 4px auto;
+  padding: 6px 0;
+  text-align: center;
+  @include font($link-font, $light-grey, 16px, .2px);
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    background-image: none;
+    height: 4px;
+    margin-top: 2px;
+    width: 0%;
+    background-color: $primary;
+    display: block;
+  }
+}
+input[type="email"] {
+  background-color: transparent;
+  margin: 10px auto 0 auto;
+  box-shadow: none;
+  padding: 12px 2px;
+  min-width: 86%;
+  border: 2px solid $light-grey;
+  border-radius: 6px;
+  @include font($link-font, $primary, 16px, .2px);
+  &::placeholder {
+    @include font($link-font, $light-grey, 16px, .2px);
+    padding: 2px;
+  }
+  &::focus {
+    border: none;
+    outline: none;
+  }
+}
+input[type="submit"] {
+  width: 10%;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  box-shadow: none;
+  opacity: 0;
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  @include background(image-url('images/arrow-right.svg'), contain);
+  transition: all .4s ease;
+  transform: translateX(-4px);
+  transition-delay: .2s;
+  &.active {
+    opacity: 1;
+    transform: translateX(4px);
   }
 }
 .section {
@@ -156,6 +249,9 @@ a {
 .ta-center {
   text-align: center;
 }
+.ta-lft {
+  text-align: left;
+}
 .fw {
   width: 100%;
 }
@@ -177,7 +273,7 @@ a {
   text-align: center;
   @include transition(all .5s ease);
   transition-delay: .3s;
-  transform: translateY(-12vh);
+  transform: translateY(-10vh);
   @include mobile {
     opacity: 0;
     transform: translateY(0vh);
@@ -205,7 +301,7 @@ a {
     }
   }
   &.grow.shrink {
-    transform: translateY(92vh);
+    transform: translateY(88vh);
     width: 100%;
     @include transition(all .5s ease);
     transition-delay: .6s;
@@ -319,17 +415,18 @@ a {
 .prev {
   @include pos-abs(12vh);
   @include mobile {
-    top: 10vh;
+    top: 8vh;
   }
 }
 .next {
   @include pos-abs(initial, initial, 12vh);
   @include mobile {
-    bottom: 8vh;
+    bottom: 4vh;
   }
   &.first {
     @include mobile {
-      bottom: 6vh;
+      bottom: 4vh;
     }
   }
 }
+
