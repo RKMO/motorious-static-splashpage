@@ -81,7 +81,7 @@ $(document).ready(function() {
   $('form').on('submit', function(e) {
     event.preventDefault();
     __ss_noform.push(['submit', null, '2a3fd6a9-2bbb-4c66-a036-33b14f004ea5']);
-    this.submit()
+    this.submit();
     $('input[type=email]').val('');
     $('.expand .ta-center').text('Thank you for your interest!');
     $(this).slideToggle('slow');
