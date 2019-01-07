@@ -108,6 +108,7 @@ a {
   &.active {
     opacity: 1;
     visibility: visible;
+    position: absolute;
   }
   p {
     min-height: 6vh;
