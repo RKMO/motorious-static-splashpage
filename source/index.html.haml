@@ -14,7 +14,7 @@ title: Motorious
   .expand
     %p.ta-center
       Request early access
-    %form.req-form
+    %form.req-form{:id => 'ss-submit'}
       %input{ :type => "radio", :name => "req_type", :value => "Shopper", checked: true, id: "shopper"}
       %label{ :for => "shopper" }
         Shopper
@@ -22,7 +22,7 @@ title: Motorious
       %label{ :for => "reader" }
         Reader
       %input{ :type => "email", :placeholder => 'Enter email', :required => true }
-      %input{ :type => "submit", :id => 'ss-submit' }
+      %input{ :type => "submit" }
   .section
     .bg-num.first{ data: {'position' => '1'}}
       = image_tag('images/200+.svg')
