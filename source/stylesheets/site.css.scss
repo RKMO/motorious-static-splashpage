@@ -4,6 +4,7 @@
 
 html, body {
   height: 100vh;
+  width: 100vw;
 }
 
 * {
@@ -22,9 +23,12 @@ body {
 }
 h1 {
   margin: 0;
-  @include font($accent-font, $dark, 8.2vw);
+  @include font($accent-font, $dark, 6vw);
   line-height: 1.12;
   margin-top: -16vh;
+  @include desktop {
+    font-size: 8vw;
+  }
   span.bold {
     font-family: $accent-font-b;
   }
@@ -74,6 +78,9 @@ a {
   &.orange {
     color: $primary;
   }
+}
+.wrapper {
+  width: 100vw;
 }
 .underline {
   text-decoration: underline;
