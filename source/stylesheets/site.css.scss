@@ -71,6 +71,10 @@ h2.no-border:after {
 p {
   @include font($sec-font, $dark, 16px);
   line-height: 1.63;
+  &.half {
+    width: 50%;
+    display: inline-block;
+  }
 }
 a {
   @include font($link-font, $light-grey, 16px, .2px);
@@ -334,6 +338,32 @@ input[type="submit"] {
   align-items: center;
   @include transition(all .6s ease);
   transition-delay: 4.4s;
+  &.lg {
+    width: 40%;
+    max-width: 40%;
+    p {
+      columns: 2;
+    }
+    li {
+      @include font($link-font, $primary, 16px, .2px);
+      list-style: none;
+      text-align: center;
+    }
+    @include tablet {
+      width: 70%;
+      max-width: 70%;
+      p {
+        columns: initial;
+      }
+    }
+    @include mobile {
+      width: 90%;
+      max-width: 90%;
+      span {
+        display: none;
+      }
+    }
+  }
   @include tablet {
     width: 60%;
     max-width: 60%;
@@ -346,7 +376,7 @@ input[type="submit"] {
     @include pos-abs(50%);
     transform: translate(0, -50%);
   }
-  .section-logo, h2, h2:after, p, .arrow-link {
+  .section-logo, h2, h2:after, p, .arrow-link, li {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-4vh);
@@ -373,7 +403,7 @@ input[type="submit"] {
   p {
     transition-delay: .9s;
   }
-  .arrow-link {
+  .arrow-link, li {
     transition-delay: 1s;
   }
 }
