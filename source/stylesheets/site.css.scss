@@ -103,6 +103,7 @@ a {
   position: fixed;
   bottom: 16vh;
   right: 4vw;
+  box-shadow: 2px 13px 17px -15px #1a1a1a;
   @include transition(all .3s ease);
   z-index: 99;
   @include tablet {
@@ -120,7 +121,6 @@ a {
   &.active {
     opacity: 1;
     visibility: visible;
-    position: absolute;
   }
   p {
     min-height: 6vh;
@@ -234,7 +234,9 @@ input[type="submit"] {
   }
 }
 .dealer-link {
-  @include pos-abs(initial, 4vw, 10vh);
+  position: fixed;
+  right: 4vw;
+  bottom: 10vh;
   width: 20vw;
   min-width: 224px;
   color: $primary;
