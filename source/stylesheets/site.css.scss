@@ -22,25 +22,32 @@ body {
   overflow-x: hidden;
 }
 h1 {
-  margin: 0;
-  @include font($accent-font, $dark, 6vw);
+  @include font($accent-font, $dark, 8vh);
   line-height: 1.12;
-  margin-top: -16vh;
-  @include desktop {
-    font-size: 8vw;
-  }
+  margin-top: -20vh;
+  padding: 0 2vw;
   span.bold {
     font-family: $accent-font-b;
+    font-size: 9vh;
   }
-  @include laptop {
-    font-size: 10vw;
+  a {
+    @include font($accent-font, $dark, 8vh);
+    transition: all .3s ease;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $primary;
   }
   @include tablet {
-    margin-top: -26vh;
-  }
-  @include mobile {
-    font-size: 10vw;
-    margin-top: -20vh;
+    font-size: 32px;
+    margin-top: -28vh;
+    padding: 0 14px;
+    span.bold {
+      font-size: 32px;
+    }
+    a {
+      font-size: 32px;
+    }
   }
 }
 h2 {
@@ -58,7 +65,7 @@ h2 {
     margin: 2.6vh -1vw;
     background-color: $dark;
     backface-visibility: hidden;
-    min-height: 1px;
+    min-height: 2px;
     max-height: 1px;
     @include mobile {
       width: 102%;
@@ -83,8 +90,28 @@ a {
     color: $primary;
   }
 }
+.top.section {
+  align-items: flex-start;
+}
 .wrapper {
   width: 100vw;
+}
+.eyebrow {
+  height: 3vh;
+  width: 100%;
+  padding: 14px 0;
+  text-align: center;
+  display: block;
+  @include font($link-font, $background-color, 16px, .2px);
+  background-color: $primary;
+  &:after {
+    content: '';
+    @include background(image-url('images/right-w.svg'));
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    margin-left: 8px;
+  }
 }
 .underline {
   text-decoration: underline;
@@ -113,14 +140,20 @@ a {
   }
   @include mobile {
     padding-top: 2vh;
-    padding-bottom: 1vh;
-    bottom: 14vh;
+    padding-bottom: 2vh;
+    bottom: 16vh;
     min-height: 4vh;
   }
   &.active {
     opacity: 1;
     visibility: visible;
-    position: fixed;
+    position: absolute;
+  }
+  &.full-w {
+    @include mobile {
+      max-width: 98vw;
+      min-width: 98vw;
+    }
   }
   p {
     min-height: 6vh;
@@ -140,6 +173,7 @@ a {
     width: 94%;
     margin: 0 auto 3% auto;
     position: relative;
+    padding: 2vh 0;
   }
 }
 input[type="radio"] {
@@ -223,9 +257,9 @@ input[type="submit"] {
   position: relative;
   perspective: 1000px;
   &:first-child {
-    padding: 4vh 2vw 2vh 2vw;
+    padding-top: 0vh;
+    padding-bottom: 2vh;
     @include mobile {
-      padding-top: 6vh;
       padding-bottom: 6vh;
     }
   }
@@ -253,7 +287,7 @@ input[type="submit"] {
     bottom: 9vh;
   }
   &.active {
-    position: fixed;
+    position: absolute;
     visibility: visible;
     opacity: 1;
   }
@@ -263,9 +297,13 @@ input[type="submit"] {
   text-align: center;
   display: block;
   max-height: 2vh;
+  margin-top: -10vh;
   img {
     width: 112px;
     height: auto;
+  }
+  @include mobile {
+    margin-top: -16vh;
   }
 }
 .ta-center {
@@ -389,6 +427,26 @@ input[type="submit"] {
   &--text {
     @include pos-abs(50%);
     transform: translate(0, -50%);
+    p {
+      .dup {
+        display: none;
+      }
+      @include mobile {
+        br {
+          display: none;
+        }
+      }
+      span {
+        @include mobile {
+          display: none;
+        }
+      }
+      span.mobile, .mobile.dup {
+        @include mobile {
+          display: block;
+        }
+      }
+    }
   }
   .section-logo, h2, h2:after, p, .arrow-link, li {
     visibility: hidden;

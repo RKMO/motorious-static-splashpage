@@ -65,6 +65,7 @@ $(document).on('ready page:load page:fetch', function() {
     $('.expand').addClass('active');
   });
   $('.expand .ta-center').on('click', function() {
+    $('.expand').toggleClass('full-w');
     $(this).text() == "I'm primarily a ..." ? $(this).text('Request early access') : $(this).text("I'm primarily a ...");
     $(this).next('form').slideToggle('slow');
     $(this).toggleClass('active');

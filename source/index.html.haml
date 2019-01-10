@@ -4,30 +4,17 @@ title: Motorious
 
 .wrapper
   .section.top.d-flx.evenly
+    =link_to 'View Our Press Release', 'https://www.motorsportnetwork.com/press/motorsportcom-motorsport-network-and-speed-digital-launch-motoriouscom', target: '_blank', class: 'eyebrow'
+
     =link_to image_tag('images/motorious.svg', alt: 'Motorious Logo'), '/', class: 'mtrs-logo'
     %h1
       %span.bold
-        The largest collector car marketplace.
+        The largest collector car marketplace. Content tailored to your passion.
       %br
-      Content tailored to your passion.
+      %span
+        Want to work with us?
+        =link_to 'hello@motorious.com', 'mailto:hello@motorious.com'
     =link_to 'See the brands behind motorious', '#', class: 'ta-center fw stat next first'
-  .expand
-    %p.ta-center
-      Request early access
-    %form.req-form{:id => 'ss-submit'}
-      %input{ :type => "radio", :name => "req_type", :value => "Shopper", checked: true, id: "shopper"}
-      %label{ :for => "shopper" }
-        Shopper
-      %input{ :type => "radio", :name => "req_type", :value => "Reader", checked: false, id: "reader" }
-      %label{ :for => "reader" }
-        Reader
-      %input{ :type => "email", :placeholder => 'Enter email', :required => true , :name => "email", :id => 'email'}
-      %input{ :type => "submit" }
-  = link_to 'https://sam.motorious.com/asi-dealer-signup-2/', target: '_blank', class: 'dealer-link ta-center' do
-    %span
-      Dealer?
-    %span.underline
-      Click Here
   .section
     .bg-num.first{ data: {'position' => '1'}}
       = image_tag('images/200+.svg')
@@ -103,13 +90,14 @@ title: Motorious
         = link_to image_tag('images/mtrs-blk.svg', alt: 'Motorious Logo'), '/', target: '_blank', class: 'section-logo'
         %h2 Coming soon in 2019.
         %p
-          Motorsport Network and Speed Digital are joining forces and combining their most prestigious automotive brands and technology solutions to bring you the most comprehensive collector car platform; motorious.
+          %span Motorsport Network and Speed Digital are joining forces and combining their most prestigious automotive brands and technology solutions to bring you the most comprehensive collector car platform; motorious.
+          %span.dup.mobile Motorsport Network and Speed Digital are joining forces to bring you the most comprehensive collector car platform; motorious.
           %br
-          %span With over 1 million unique visitors per month and 2.8 billion dollars in vehicle inventory, motorious aims to dominate the collector car market by providing industry-leading content while simplifying the buying and selling of collector cars.
+          %span.mobile With over 1 million unique visitors per month and 2.8 billion dollars in vehicle inventory, motorious aims to dominate the collector car market by providing industry-leading content while simplifying the buying and selling of collector cars.
           %br
           %span Whether you were a loyal AutoClassics.com reader or were looking to buy your dream McLaren P1, motorious will be the go-to for all collector car enthusiasts, buyers and sellers.
           %br
-          %span Motorious is a Motorsport Network Company
+          %span.mobile Motorious is a Motorsport Network Company
           %br
           %span Motorsport Network is the largest automotive and motorsport technology & digital media company in the world. Motorsport Network connects hundreds of millions of people around the world who love motorsport and cars.
         %li 260M+ pageviews per month
@@ -117,6 +105,23 @@ title: Motorious
         %li 81 Countries
         %li 17 Languages
       =link_to 'Back To Top', '#', class: 'ta-center fw stat next top'
+.expand
+  %p.ta-center
+    Request early access
+  %form.req-form{:id => 'ss-submit'}
+    %input{ :type => "radio", :name => "req_type", :value => "Shopper", checked: true, id: "shopper"}
+    %label{ :for => "shopper" }
+      Shopper
+    %input{ :type => "radio", :name => "req_type", :value => "Reader", checked: false, id: "reader" }
+    %label{ :for => "reader" }
+      Reader
+    %input{ :type => "email", :placeholder => 'Enter email', :required => true , :name => "email", :id => 'email'}
+    %input{ :type => "submit" }
+= link_to 'https://sam.motorious.com/asi-dealer-signup-2/', target: '_blank', class: 'dealer-link ta-center' do
+  %span
+    Dealer?
+  %span.underline
+    Click Here
 :javascript
   var __ss_noform = __ss_noform || [];
   setTimeout(function(){
