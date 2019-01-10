@@ -100,7 +100,6 @@ a {
   padding: 1.4vw 1vw 0;
   cursor: pointer;
   min-width: 320px;
-  position: fixed;
   bottom: 16vh;
   right: 4vw;
   box-shadow: 2px 13px 17px -15px #1a1a1a;
@@ -121,6 +120,7 @@ a {
   &.active {
     opacity: 1;
     visibility: visible;
+    position: fixed;
   }
   p {
     min-height: 6vh;
@@ -234,7 +234,8 @@ input[type="submit"] {
   }
 }
 .dealer-link {
-  position: fixed;
+  visibility: hidden;
+  opacity: 0;
   right: 4vw;
   bottom: 10vh;
   width: 20vw;
@@ -249,6 +250,11 @@ input[type="submit"] {
   }
   @include mobile {
     bottom: 9vh;
+  }
+  &.active {
+    position: fixed;
+    visibility: visible;
+    opacity: 1;
   }
 }
 .mtrs-logo {

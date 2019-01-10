@@ -17,10 +17,13 @@ $(document).on('ready page:load page:fetch', function() {
     setHeights: false,
     afterRender:function() {
       $('body').attr('data-preIndex',0);
-      $('.expand').addClass('active');
+      $('.expand, .dealer-link').addClass('active');
     },
     before: function(e) {
       var direction,preIndex;
+      if ($(window).width() <= 991 && count == 0) {
+        $('.expand, .dealer-link').removeClass('active');
+      }
       preIndex = parseInt($('body').attr('data-preIndex'));
       if (e > preIndex) {
         $.scrollify.current().find('.bg-num').addClass('grow');
@@ -40,7 +43,9 @@ $(document).on('ready page:load page:fetch', function() {
       $.scrollify.current().find('.section-content').addClass('animate');
       $("div[data-position='" + (count - 1 ) + "']").next('.section-content').removeClass('animate');
       $("div[data-position='" + (count + 1 ) + "']").next('.section-content').removeClass('animate');
-      $('expand').addClass('active');
+      if ($(window).width() <= 991 && count == 0) {
+        $('.expand, .dealer-link').addClass('active');
+      }
     }
   })
   $('.prev').on('click', function(e) {
