@@ -241,6 +241,7 @@ input[type="submit"] {
   width: 20vw;
   min-width: 224px;
   color: $primary;
+  z-index: 99;
   padding: 1.4vw 1vw;
   @include tablet {
     bottom: 20vh;
